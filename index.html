@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="從零開始的韓語自學網站，為台灣初學者設計，包含韓文 40 音、拼字、發音、練習與學習紀錄。"
+    />
+    <title>韓語初學 | 從 40 音開始的自學網站</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#learning" aria-label="回到學習頁">
+        <span class="brand-mark" aria-hidden="true">한</span>
+        <span>
+          <strong>韓語初學</strong>
+          <small>Hangul Daily</small>
+        </span>
+      </a>
+
+      <nav class="tab-nav" aria-label="主分頁">
+        <button class="tab-button is-active" type="button" data-tab="learning" aria-controls="learning">
+          <span aria-hidden="true">ㄱ</span>
+          學習
+        </button>
+        <button class="tab-button" type="button" data-tab="practice" aria-controls="practice">
+          <span aria-hidden="true">▶</span>
+          練習
+        </button>
+        <button class="tab-button" type="button" data-tab="record" aria-controls="record">
+          <span aria-hidden="true">✓</span>
+          紀錄
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-band" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">給從未學過韓語的台灣人</p>
+          <h1 id="hero-title">把韓文變成每天聽得懂、讀得出的聲音。</h1>
+          <p class="hero-text">
+            從 40 音、嘴型、拼字規則開始，接著練旅行與生活句子。每個音都能重播、放慢、拆音，讓零基礎也能照著節奏前進。
+          </p>
+
+          <div class="hero-kpis" aria-label="網站重點">
+            <span><strong>40</strong> 韓文音</span>
+            <span><strong>3</strong> 種練習</span>
+            <span><strong>0</strong> 需安裝</span>
+          </div>
+
+          <div class="hero-actions" aria-label="常用動作">
+            <button class="primary-action" type="button" data-jump="soundLab">
+              <span aria-hidden="true">▶</span>
+              開始 40 音
+            </button>
+            <button class="quiet-action" type="button" data-tab-target="practice">
+              <span aria-hidden="true">↻</span>
+              今日練習
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="韓文方塊字示意">
+          <div class="syllable-stage">
+            <div class="block-grid" aria-hidden="true">
+              <span>ㄱ</span>
+              <span>ㅏ</span>
+              <span>ㅇ</span>
+            </div>
+            <strong id="heroSyllable">강</strong>
+            <p>子音 + 母音 + 收音</p>
+          </div>
+          <div class="daily-panel">
+            <span>今日進度</span>
+            <strong id="heroProgress">0%</strong>
+            <div class="progress-track" aria-hidden="true">
+              <span id="heroProgressBar"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="control-strip" aria-label="播放速度">
+        <span>播放速度</span>
+        <div class="speed-control" role="group" aria-label="韓語發音播放速度">
+          <button class="speed-button" type="button" data-rate="1">正常</button>
+          <button class="speed-button is-active" type="button" data-rate="0.72">慢速</button>
+          <button class="speed-button" type="button" data-rate="0.52">拆音</button>
+        </div>
+        <button class="icon-button" type="button" id="stopSpeech" title="停止播放" aria-label="停止播放">
+          ■
+        </button>
+      </section>
+
+      <section class="tab-panel is-active" id="learning" tabindex="0" aria-labelledby="learning-title">
+        <div class="section-heading">
+          <p class="eyebrow">Learning Path</p>
+          <h2 id="learning-title">初學路線</h2>
+          <p>先把字母、嘴型與方塊字結構建立穩，再把聲音放進旅行與生活句子。注音只作輔助，發音仍以韓語口腔位置為主。</p>
+        </div>
+
+        <div class="content-shell">
+          <aside class="section-menu learning-menu" aria-label="學習內容">
+            <button class="is-active" type="button" data-learning-view="soundLab">
+              <span>01</span>
+              <strong>40 音</strong>
+              <small>母音、子音、雙子音</small>
+            </button>
+            <button type="button" data-learning-view="pronunciationRules">
+              <span>02</span>
+              <strong>發音規則</strong>
+              <small>收音、連音、緊音</small>
+            </button>
+            <button type="button" data-learning-view="spellingRules">
+              <span>03</span>
+              <strong>拼字</strong>
+              <small>韓字方塊結構</small>
+            </button>
+            <button type="button" data-learning-view="travelWords">
+              <span>04</span>
+              <strong>旅行詞語</strong>
+              <small>交通、住宿、購物</small>
+            </button>
+            <button type="button" data-learning-view="travelSentences">
+              <span>05</span>
+              <strong>旅行句子</strong>
+              <small>可直接開口使用</small>
+            </button>
+            <button type="button" data-learning-view="dailySentences">
+              <span>06</span>
+              <strong>生活語句</strong>
+              <small>問候與日常回應</small>
+            </button>
+          </aside>
+
+          <div class="content-stage">
+            <section class="learning-view sound-lab is-active" id="soundLab" aria-labelledby="sound-title">
+              <div class="section-heading compact">
+                <p class="eyebrow">Hangul 40</p>
+                <h2 id="sound-title">韓文 40 音</h2>
+                <p>母音看嘴型，子音聽送氣、緊音與收尾位置。每張卡片都能播放韓語示範音。</p>
+              </div>
+
+              <div class="path-grid" id="lessonPath"></div>
+
+              <div class="sound-layout">
+                <aside class="group-rail" aria-label="40 音分類">
+                  <button class="group-button is-active" type="button" data-group="basicVowels">
+                    <strong>基本母音</strong>
+                    <span>10</span>
+                  </button>
+                  <button class="group-button" type="button" data-group="compoundVowels">
+                    <strong>複合母音</strong>
+                    <span>11</span>
+                  </button>
+                  <button class="group-button" type="button" data-group="singleConsonants">
+                    <strong>單子音</strong>
+                    <span>14</span>
+                  </button>
+                  <button class="group-button" type="button" data-group="doubleConsonants">
+                    <strong>雙子音</strong>
+                    <span>5</span>
+                  </button>
+                </aside>
+
+                <div class="sound-board">
+                  <div class="sound-toolbar">
+                    <div>
+                      <span id="groupLabel">基本母音</span>
+                      <strong id="groupSummary">先分清楚張口、圓唇、扁平嘴型。</strong>
+                    </div>
+                    <button class="icon-text-button" type="button" id="playGroup">
+                      <span aria-hidden="true">▶</span>
+                      播放本組
+                    </button>
+                  </div>
+                  <div class="sound-grid" id="soundGrid"></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="learning-view pronunciation-section" id="pronunciationRules" aria-labelledby="pronunciation-title">
+              <div class="section-heading compact">
+                <p class="eyebrow">Pronunciation Rules</p>
+                <h2 id="pronunciation-title">發音規則</h2>
+                <p>先用最常遇到的規則建立耳朵：收音、連音、送氣與緊音。每個例子都能慢速重聽。</p>
+              </div>
+              <div class="pronunciation-grid" id="pronunciationRuleGrid"></div>
+            </section>
+
+            <section class="learning-view rule-band" id="spellingRules" aria-labelledby="rules-title">
+              <div class="rule-copy">
+                <p class="eyebrow">Reading Rule</p>
+                <h2 id="rules-title">韓字是一個方塊，不是一條線。</h2>
+                <p>
+                  每個音節通常由「初聲子音 + 中聲母音」組成，底部可再加「終聲收音」。例如 가 是 ㄱ + ㅏ，
+                  감 是 ㄱ + ㅏ + ㅁ。讀字時先找母音方向，再回頭補上子音與收音。
+                </p>
+              </div>
+
+              <div class="stack-demo" aria-label="韓字堆疊示意">
+                <div>
+                  <span>ㄱ</span>
+                  <span>ㅏ</span>
+                </div>
+                <strong>가</strong>
+                <small>ka/ga</small>
+              </div>
+              <div class="stack-demo three" aria-label="含收音的韓字堆疊示意">
+                <div>
+                  <span>ㄱ</span>
+                  <span>ㅏ</span>
+                  <span>ㅁ</span>
+                </div>
+                <strong>감</strong>
+                <small>kam/gam</small>
+              </div>
+            </section>
+
+            <section class="learning-view phrase-bank" id="travelWords" aria-labelledby="travel-words-title">
+              <div class="section-heading compact">
+                <p class="eyebrow">Travel Words</p>
+                <h2 id="travel-words-title">旅行常用詞語</h2>
+                <p>從機場、交通、餐廳到購物，先記能立刻用上的詞。</p>
+              </div>
+              <div class="word-grid" id="travelWordGrid"></div>
+            </section>
+
+            <section class="learning-view phrase-bank" id="travelSentences" aria-labelledby="travel-sentences-title">
+              <div class="section-heading compact">
+                <p class="eyebrow">Travel Sentences</p>
+                <h2 id="travel-sentences-title">旅行常用句子</h2>
+                <p>用完整句子練音節節奏，出國時可以直接拿來說。</p>
+              </div>
+              <div class="sentence-grid" id="travelSentenceGrid"></div>
+            </section>
+
+            <section class="learning-view phrase-bank" id="dailySentences" aria-labelledby="daily-sentences-title">
+              <div class="section-heading compact">
+                <p class="eyebrow">Daily Sentences</p>
+                <h2 id="daily-sentences-title">生活常用語句</h2>
+                <p>問候、感謝、確認、表達喜好，先把最常開口的句子變熟。</p>
+              </div>
+              <div class="sentence-grid" id="dailySentenceGrid"></div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="practice" tabindex="0" aria-labelledby="practice-title">
+        <div class="section-heading">
+          <p class="eyebrow">Practice Room</p>
+          <h2 id="practice-title">練習</h2>
+          <p>練習不是考倒你，而是把耳朵、眼睛和嘴巴接起來。先聽音，再選字、選詞、組字。</p>
+        </div>
+
+        <div class="content-shell practice-shell">
+          <aside class="section-menu practice-mode-tabs" id="quizModeTabs" aria-label="練習項目">
+            <button class="is-active" type="button" data-mode="soundToLetter" data-practice-view="quizPanel">
+              <span>01</span>
+              <strong>聽 40 音選字</strong>
+              <small>辨認母音與子音</small>
+            </button>
+            <button type="button" data-mode="soundToWord" data-practice-view="quizPanel">
+              <span>02</span>
+              <strong>聽音選詞</strong>
+              <small>把音連到詞語</small>
+            </button>
+            <button type="button" data-mode="zhToKorean" data-practice-view="quizPanel">
+              <span>03</span>
+              <strong>看中文選韓文</strong>
+              <small>建立中韓對應</small>
+            </button>
+            <button type="button" data-practice-view="builderPanel">
+              <span>04</span>
+              <strong>拼字實驗</strong>
+              <small>組出一個方塊字</small>
+            </button>
+            <button type="button" data-practice-view="themePractice">
+              <span>05</span>
+              <strong>生活主題單字</strong>
+              <small>飲食、問路、購物</small>
+            </button>
+          </aside>
+
+          <div class="content-stage">
+            <section class="practice-view quiz-panel is-active" id="quizPanel" aria-labelledby="quiz-title">
+              <div class="panel-heading">
+                <p class="eyebrow">Listening</p>
+                <h3 id="quiz-title">聽辨小測</h3>
+              </div>
+              <div class="quiz-card">
+                <button class="round-play" type="button" id="playQuiz" aria-label="播放題目">▶</button>
+                <div>
+                  <span class="quiz-chip" id="quizLevel">40 音</span>
+                  <strong id="quizPrompt">聽音後選出正確的韓文字</strong>
+                  <p id="quizHint">慢速播放會保留韓語節奏，但讓起音更清楚。</p>
+                </div>
+              </div>
+              <div class="answer-grid" id="answerGrid"></div>
+              <p class="result-line" id="quizResult" aria-live="polite"></p>
+              <button class="primary-action full" type="button" id="nextQuiz">
+                <span aria-hidden="true">↻</span>
+                下一題
+              </button>
+            </section>
+
+            <section class="practice-view builder-panel" id="builderPanel" aria-labelledby="builder-title">
+              <div class="panel-heading">
+                <p class="eyebrow">Syllable Builder</p>
+                <h3 id="builder-title">拼字實驗</h3>
+              </div>
+              <div class="builder-stage">
+                <strong id="builtSyllable">가</strong>
+                <button class="icon-button large" type="button" id="playBuilt" title="播放拼出的字" aria-label="播放拼出的字">
+                  ▶
+                </button>
+              </div>
+              <div class="builder-controls">
+                <label>
+                  初聲
+                  <select id="initialSelect"></select>
+                </label>
+                <label>
+                  中聲
+                  <select id="vowelSelect"></select>
+                </label>
+                <label>
+                  收音
+                  <select id="finalSelect"></select>
+                </label>
+              </div>
+              <p class="builder-note" id="builderNote">ㄱ + ㅏ = 가</p>
+            </section>
+
+            <section class="practice-view theme-practice" id="themePractice" aria-labelledby="theme-title">
+              <div class="section-heading compact">
+                <p class="eyebrow">Daily Words</p>
+                <h2 id="theme-title">生活主題單字</h2>
+              </div>
+              <div class="theme-tabs" id="themeTabs" role="group" aria-label="生活主題"></div>
+              <div class="word-grid" id="wordGrid"></div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="record" tabindex="0" aria-labelledby="record-title">
+        <div class="section-heading">
+          <p class="eyebrow">Record</p>
+          <h2 id="record-title">紀錄</h2>
+          <p>資料會存在這台裝置的瀏覽器裡，適合個人自學與 GitHub Pages 靜態網站。</p>
+        </div>
+
+        <div class="record-grid">
+          <section class="stat-panel" aria-label="學習統計">
+            <div class="stat">
+              <span>今日分鐘</span>
+              <strong id="todayMinutes">0</strong>
+            </div>
+            <div class="stat">
+              <span>熟悉音標</span>
+              <strong id="knownSounds">0/40</strong>
+            </div>
+            <div class="stat">
+              <span>連續打卡</span>
+              <strong id="streakDays">0</strong>
+            </div>
+          </section>
+
+          <section class="checkin-panel" aria-labelledby="checkin-title">
+            <div class="panel-heading">
+              <p class="eyebrow">Daily Check-in</p>
+              <h3 id="checkin-title">今日打卡</h3>
+            </div>
+            <div class="checklist" id="dailyChecklist"></div>
+            <button class="primary-action full" type="button" id="checkInButton">
+              <span aria-hidden="true">✓</span>
+              完成今日學習
+            </button>
+          </section>
+
+          <section class="notes-panel" aria-labelledby="notes-title">
+            <div class="panel-heading">
+              <p class="eyebrow">Notes</p>
+              <h3 id="notes-title">我的筆記</h3>
+            </div>
+            <textarea id="studyNotes" rows="8" placeholder="例：ㅓ 和 ㅗ 要分清楚；밥을 먹어요 的動詞在最後。"></textarea>
+            <div class="note-actions">
+              <button class="quiet-action" type="button" id="exportProgress">
+                <span aria-hidden="true">↓</span>
+                匯出紀錄
+              </button>
+              <button class="danger-action" type="button" id="resetProgress">
+                <span aria-hidden="true">×</span>
+                清除紀錄
+              </button>
+            </div>
+          </section>
+        </div>
+
+        <section class="week-panel" aria-labelledby="week-title">
+          <div class="panel-heading">
+            <p class="eyebrow">This Week</p>
+            <h3 id="week-title">七日學習溫度</h3>
+          </div>
+          <div class="week-bars" id="weekBars"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Made for GitHub Pages. 內容以初學導向整理，發音請以韓語母語音檔與老師校正為最終標準。</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
