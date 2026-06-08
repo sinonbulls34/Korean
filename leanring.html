@@ -1,0 +1,1198 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>韓語 40 音入門｜Korean Learning</title>
+  <meta name="description" content="專為台灣初學者設計的高質感韓語自學網站：從母音嘴型、子音、收音到生活與旅行常用語，搭配互動練習快速上手。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fffaf4;
+      --bg-soft: #fff4e7;
+      --ink: #201a17;
+      --muted: #75675f;
+      --line: rgba(63, 42, 33, .12);
+      --card: rgba(255, 255, 255, .76);
+      --card-strong: #ffffff;
+      --primary: #ec6f66;
+      --primary-dark: #c94d48;
+      --accent: #306bff;
+      --mint: #53b99f;
+      --butter: #ffcd6b;
+      --lavender: #a890ff;
+      --shadow: 0 22px 70px rgba(83, 57, 43, .16);
+      --shadow-soft: 0 12px 36px rgba(83, 57, 43, .10);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 9% 9%, rgba(255, 205, 107, .34), transparent 28%),
+        radial-gradient(circle at 88% 8%, rgba(168, 144, 255, .23), transparent 26%),
+        radial-gradient(circle at 86% 76%, rgba(83, 185, 159, .20), transparent 30%),
+        linear-gradient(180deg, #fffaf4 0%, #fff7ef 45%, #fffaf4 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .38;
+      background-image:
+        linear-gradient(rgba(32,26,23,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(32,26,23,.055) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.85), transparent 72%);
+      z-index: -2;
+    }
+
+    .orb {
+      position: fixed;
+      border-radius: 999px;
+      filter: blur(8px);
+      opacity: .45;
+      z-index: -1;
+      animation: float 10s ease-in-out infinite;
+    }
+    .orb.one { width: 180px; height: 180px; background: #ffb6a8; left: -50px; top: 160px; }
+    .orb.two { width: 260px; height: 260px; background: #d8ceff; right: -90px; top: 380px; animation-delay: -3s; }
+    .orb.three { width: 170px; height: 170px; background: #a9e6d6; left: 58%; bottom: -80px; animation-delay: -6s; }
+    @keyframes float {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(14px, -20px, 0) scale(1.06); }
+    }
+
+    a { color: inherit; }
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+
+    .shell { max-width: var(--max); margin: 0 auto; padding: 0 22px; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(18px);
+      background: rgba(255, 250, 244, .76);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 76px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: -.02em;
+    }
+    .logo {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--primary), #ff9d76 45%, var(--butter));
+      box-shadow: 0 14px 28px rgba(236, 111, 102, .26);
+      font-family: "Noto Sans KR", sans-serif;
+      font-weight: 900;
+    }
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: .76rem;
+      margin-top: 2px;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .pill-btn {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.68);
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 800;
+      transition: .22s ease;
+    }
+    .pill-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); color: var(--ink); }
+    .pill-btn.primary { border: 0; color: #fff; background: var(--ink); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(320px, .96fr);
+      gap: 34px;
+      align-items: center;
+      padding: 64px 0 30px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.68);
+      color: var(--muted);
+      font-weight: 800;
+      font-size: .9rem;
+      box-shadow: 0 10px 28px rgba(83,57,43,.07);
+    }
+    .spark { width: 9px; height: 9px; border-radius: 99px; background: var(--mint); box-shadow: 0 0 0 7px rgba(83,185,159,.14); }
+    h1 {
+      margin: 18px 0 16px;
+      font-size: clamp(2.55rem, 6vw, 5.7rem);
+      line-height: .92;
+      letter-spacing: -.08em;
+      max-width: 860px;
+    }
+    .grad-text {
+      background: linear-gradient(135deg, #201a17 0%, #ec6f66 48%, #306bff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero p.lead {
+      margin: 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+      line-height: 1.78;
+      font-weight: 600;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+    .cta {
+      border: 0;
+      border-radius: 18px;
+      padding: 14px 18px;
+      font-weight: 900;
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 18px 34px rgba(236, 111, 102, .28);
+      transition: .22s ease;
+    }
+    .cta:hover { transform: translateY(-3px) scale(1.01); background: var(--primary-dark); }
+    .cta.secondary { background: #fff; color: var(--ink); border: 1px solid var(--line); box-shadow: var(--shadow-soft); }
+
+    .hero-card {
+      position: relative;
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,.72);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(145deg, rgba(255,255,255,.88), rgba(255,242,229,.72));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(255,205,107,.34), transparent 24%),
+        radial-gradient(circle at 85% 20%, rgba(83,185,159,.22), transparent 24%);
+      pointer-events: none;
+    }
+    .hero-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .mini-card {
+      min-height: 152px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.72);
+      box-shadow: 0 14px 36px rgba(83,57,43,.08);
+      transition: transform .25s ease;
+    }
+    .mini-card:hover { transform: translateY(-4px) rotate(-.4deg); }
+    .mini-card.wide { grid-column: span 2; min-height: 120px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .hangul-big {
+      font-family: "Noto Sans KR", sans-serif;
+      font-weight: 900;
+      font-size: 4.6rem;
+      line-height: .95;
+      letter-spacing: -.04em;
+    }
+    .mini-card .label { color: var(--muted); font-weight: 800; margin-top: 12px; }
+    .sound-wave { display: flex; align-items: end; gap: 5px; height: 62px; padding: 0 8px; }
+    .sound-wave span {
+      width: 8px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--accent), #9cb4ff);
+      animation: pulseBar 1.2s ease-in-out infinite;
+    }
+    .sound-wave span:nth-child(1) { height: 24px; }
+    .sound-wave span:nth-child(2) { height: 44px; animation-delay: -.2s; }
+    .sound-wave span:nth-child(3) { height: 30px; animation-delay: -.4s; }
+    .sound-wave span:nth-child(4) { height: 58px; animation-delay: -.6s; }
+    .sound-wave span:nth-child(5) { height: 36px; animation-delay: -.8s; }
+    @keyframes pulseBar { 50% { transform: scaleY(.55); opacity: .55; } }
+
+    .section { padding: 46px 0; }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .section h2 {
+      margin: 0;
+      font-size: clamp(1.75rem, 3vw, 2.8rem);
+      letter-spacing: -.04em;
+    }
+    .section-head p { margin: 8px 0 0; color: var(--muted); line-height: 1.75; font-weight: 600; max-width: 660px; }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.58);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 86px;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+    }
+    .tab {
+      border: 0;
+      padding: 16px 18px;
+      border-radius: 18px;
+      color: var(--muted);
+      background: transparent;
+      font-weight: 900;
+      transition: .22s ease;
+    }
+    .tab.active {
+      color: #fff;
+      background: linear-gradient(135deg, var(--ink), #4b3932);
+      box-shadow: 0 14px 24px rgba(32,26,23,.18);
+    }
+
+    .panel { display: none; animation: fadeUp .36s ease both; }
+    .panel.active { display: block; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 286px minmax(0, 1fr);
+      gap: 20px;
+      align-items: start;
+      margin-top: 20px;
+    }
+    .side {
+      position: sticky;
+      top: 166px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.68);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(18px);
+    }
+    .side-title { padding: 8px 10px 12px; color: var(--muted); font-weight: 900; font-size: .88rem; }
+    .menu-btn {
+      width: 100%;
+      border: 0;
+      text-align: left;
+      padding: 13px 14px;
+      border-radius: 16px;
+      background: transparent;
+      color: var(--muted);
+      font-weight: 900;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      transition: .2s ease;
+    }
+    .menu-btn:hover { background: rgba(236,111,102,.09); color: var(--ink); }
+    .menu-btn.active { background: var(--ink); color: #fff; box-shadow: 0 14px 26px rgba(32,26,23,.16); }
+    .menu-btn span:last-child { opacity: .65; font-family: "Noto Sans KR", sans-serif; }
+
+    .content-card {
+      border: 1px solid rgba(255,255,255,.72);
+      border-radius: var(--radius-xl);
+      background: rgba(255,255,255,.72);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+    .module { display: none; padding: 24px; }
+    .module.active { display: block; animation: fadeUp .3s ease both; }
+
+    .lesson-banner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 24px;
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(236,111,102,.14), rgba(255,205,107,.18)),
+        #fff;
+      border: 1px solid var(--line);
+      margin-bottom: 20px;
+    }
+    .lesson-banner h3 { margin: 0; font-size: clamp(1.45rem, 3vw, 2.2rem); letter-spacing: -.04em; }
+    .lesson-banner p { margin: 8px 0 0; color: var(--muted); line-height: 1.72; font-weight: 600; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 900;
+      font-size: .84rem;
+      box-shadow: 0 10px 22px rgba(83,57,43,.07);
+    }
+
+    .grid { display: grid; gap: 14px; }
+    .grid.cards { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .grid.cards.compound { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .sound-card {
+      position: relative;
+      isolation: isolate;
+      min-height: 168px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 12px 26px rgba(83,57,43,.08);
+      transition: .22s ease;
+    }
+    .sound-card::after {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      right: -28px;
+      top: -28px;
+      border-radius: 999px;
+      background: rgba(236,111,102,.10);
+      z-index: -1;
+      transition: .22s ease;
+    }
+    .sound-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-soft); }
+    .sound-card:hover::after { transform: scale(1.28); background: rgba(48,107,255,.10); }
+    .letter {
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 3.15rem;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -.04em;
+    }
+    .sound-meta { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px; }
+    .zhuyin { font-weight: 900; color: var(--primary-dark); }
+    .roman { color: var(--muted); font-weight: 800; font-size: .88rem; }
+    .tip { margin-top: 10px; color: var(--muted); line-height: 1.55; font-weight: 600; font-size: .92rem; }
+    .listen {
+      border: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 15px;
+      background: var(--ink);
+      color: #fff;
+      box-shadow: 0 12px 20px rgba(32,26,23,.18);
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+
+    .mouth-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-bottom: 18px; }
+    .mouth-card {
+      padding: 16px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: 0 12px 26px rgba(83,57,43,.08);
+      min-height: 220px;
+    }
+    .mouth-card h4 { margin: 0 0 8px; font-size: 1.02rem; }
+    .mouth-card p { margin: 0; color: var(--muted); line-height: 1.6; font-weight: 600; font-size: .92rem; }
+    .mouth-svg { width: 100%; height: 94px; margin: 6px 0 12px; overflow: visible; }
+    .mouth-line { fill: none; stroke: #201a17; stroke-width: 8; stroke-linecap: round; }
+    .tongue { fill: rgba(236,111,102,.25); stroke: rgba(236,111,102,.65); stroke-width: 3; }
+    .face-dot { fill: #201a17; opacity: .25; }
+
+    .rule-list { display: grid; gap: 12px; }
+    .rule {
+      display: grid;
+      grid-template-columns: auto minmax(0,1fr);
+      gap: 12px;
+      align-items: start;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fff;
+    }
+    .rule-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--bg-soft);
+      color: var(--primary-dark);
+      font-weight: 900;
+    }
+    .rule strong { display: block; margin-bottom: 4px; }
+    .rule p { margin: 0; color: var(--muted); line-height: 1.65; font-weight: 600; }
+    .example-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin: 8px 8px 0 0;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(48,107,255,.08);
+      color: #264fae;
+      font-weight: 900;
+      font-family: "Noto Sans KR", "Noto Sans TC", sans-serif;
+    }
+
+    .builder {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .pick-box {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: #fff;
+    }
+    .pick-box h4 { margin: 0 0 12px; }
+    .pick-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pick {
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #fff8f0;
+      padding: 8px 10px;
+      font-family: "Noto Sans KR", sans-serif;
+      font-weight: 900;
+      min-width: 42px;
+      transition: .18s ease;
+    }
+    .pick.active { background: var(--ink); color: #fff; }
+    .syllable-preview {
+      grid-column: span 3;
+      padding: 22px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #201a17, #4d3b34);
+      color: #fff;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 18px;
+      align-items: center;
+    }
+    .preview-letter { font-family: "Noto Sans KR", sans-serif; font-size: 5rem; line-height: .95; font-weight: 900; }
+    .preview-text strong { display: block; font-size: 1.25rem; margin-bottom: 6px; }
+    .preview-text span { color: rgba(255,255,255,.72); line-height: 1.6; }
+
+    .word-card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: #fff;
+      box-shadow: 0 12px 26px rgba(83,57,43,.08);
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .word-ko {
+      font-family: "Noto Sans KR", sans-serif;
+      font-weight: 900;
+      font-size: 2rem;
+      letter-spacing: -.03em;
+    }
+    .word-tw { font-weight: 900; margin-top: 4px; }
+    .word-note { color: var(--muted); font-weight: 600; line-height: 1.58; font-size: .9rem; margin-top: 8px; }
+    .word-actions { display: flex; gap: 8px; align-items: center; justify-content: space-between; margin-top: 12px; }
+
+    .practice-box {
+      padding: 24px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(255,205,107,.2), transparent 25%),
+        #fff;
+      box-shadow: var(--shadow-soft);
+    }
+    .practice-top {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) auto;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .practice-top h3 { margin: 0; font-size: clamp(1.4rem, 3vw, 2.1rem); letter-spacing: -.04em; }
+    .practice-top p { margin: 8px 0 0; color: var(--muted); line-height: 1.7; font-weight: 600; }
+    .quiz-card {
+      border-radius: 28px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(255,250,244,.92), #fff);
+    }
+    .quiz-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .quiz-title { font-size: 1.15rem; font-weight: 900; }
+    .quiz-prompt {
+      margin: 0 0 16px;
+      font-size: clamp(1.65rem, 4vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -.04em;
+    }
+    .options { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+    .option {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 16px;
+      background: #fff;
+      text-align: left;
+      font-weight: 900;
+      transition: .18s ease;
+      min-height: 70px;
+    }
+    .option:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+    .option.correct { border-color: rgba(83,185,159,.6); background: rgba(83,185,159,.14); }
+    .option.wrong { border-color: rgba(236,111,102,.6); background: rgba(236,111,102,.12); }
+    .feedback {
+      min-height: 44px;
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(32,26,23,.05);
+      color: var(--muted);
+      font-weight: 800;
+      line-height: 1.55;
+    }
+    .progress {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .stat {
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-weight: 900;
+    }
+
+    .footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .floating-practice {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 40;
+      border: 0;
+      border-radius: 22px;
+      padding: 14px 16px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), #7b94ff);
+      box-shadow: 0 18px 38px rgba(48,107,255,.25);
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; padding-top: 42px; }
+      .hero-card { order: -1; }
+      .layout { grid-template-columns: 1fr; }
+      .side { position: relative; top: auto; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
+      .side-title { grid-column: 1 / -1; }
+      .grid.cards, .grid.cards.compound { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .mouth-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .builder { grid-template-columns: 1fr; }
+      .syllable-preview { grid-column: span 1; grid-template-columns: 1fr; text-align: center; }
+      .grid.three { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+    @media (max-width: 640px) {
+      .shell { padding: 0 14px; }
+      .nav { min-height: 68px; }
+      .brand small { display: none; }
+      .nav-actions .pill-btn:not(.primary) { display: none; }
+      .tabs { top: 70px; grid-template-columns: 1fr; }
+      .section { padding: 34px 0; }
+      .module { padding: 14px; }
+      .lesson-banner, .practice-top { grid-template-columns: 1fr; }
+      .grid.cards, .grid.cards.compound, .grid.two, .grid.three, .mouth-row, .options { grid-template-columns: 1fr; }
+      .side { grid-template-columns: 1fr; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .mini-card.wide { grid-column: span 1; flex-direction: column; align-items: flex-start; }
+      .floating-practice { left: 14px; right: 14px; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
+
+  <header class="topbar">
+    <div class="shell nav">
+      <a class="brand" href="#top" aria-label="回到首頁">
+        <span class="logo">한</span>
+        <span>韓語入門自學<small>From ㄚ to 안녕하세요</small></span>
+      </a>
+      <nav class="nav-actions" aria-label="主要導覽">
+        <button class="pill-btn" data-jump="learn">學習</button>
+        <button class="pill-btn" data-jump="practice">練習</button>
+        <button class="pill-btn primary" data-jump="vowels">今天 10 分鐘</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="shell hero">
+      <div>
+        <div class="eyebrow"><span class="spark"></span> 專為從零開始的台灣人設計</div>
+        <h1><span class="grad-text">先看嘴型，</span><br>再讀懂韓文。</h1>
+        <p class="lead">從基本母音的嘴型差異開始，接著學會子音、雙子音、收音與拼字規則。每天一小段，讓你能自己讀出韓文 40 音，並看懂生活與旅行常用詞語。</p>
+        <div class="hero-actions">
+          <button class="cta" data-jump="learn">開始學 40 音</button>
+          <button class="cta secondary" data-jump="practice">直接做練習</button>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="韓語學習特色卡片">
+        <div class="hero-grid">
+          <div class="mini-card">
+            <div class="hangul-big">아</div>
+            <div class="label">先抓母音嘴型</div>
+          </div>
+          <div class="mini-card">
+            <div class="sound-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="label">點一下聽發音</div>
+          </div>
+          <div class="mini-card wide">
+            <div>
+              <div class="hangul-big">한글</div>
+              <div class="label">子音 + 母音 + 收音 = 拼字</div>
+            </div>
+            <button class="listen" data-speak="한글" aria-label="播放 한글">▶</button>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="shell section" id="learn">
+      <div class="section-head">
+        <div>
+          <h2>選一條路線開始</h2>
+          <p>學習分頁依照「母音 → 子音 → 拼字 → 詞語」安排。每張卡片都提供台灣學習者容易理解的近似音、嘴型提示與播放按鈕。</p>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="學習與練習分頁">
+        <button class="tab active" data-panel="learnPanel" role="tab" aria-selected="true">學習</button>
+        <button class="tab" data-panel="practicePanel" role="tab" aria-selected="false">練習</button>
+      </div>
+
+      <div id="learnPanel" class="panel active">
+        <div class="layout">
+          <aside class="side" aria-label="學習內容選單">
+            <div class="side-title">學習內容</div>
+            <button class="menu-btn active" data-module="vowels"><span>40音＋發音方式與規則</span><span>ㅏ</span></button>
+            <button class="menu-btn" data-module="spelling"><span>拼字</span><span>한</span></button>
+            <button class="menu-btn" data-module="daily"><span>生活常用詞語</span><span>밥</span></button>
+            <button class="menu-btn" data-module="travel"><span>旅行常用詞語</span><span>여행</span></button>
+          </aside>
+
+          <div class="content-card">
+            <section class="module active" id="vowels">
+              <div class="lesson-banner">
+                <div>
+                  <span class="badge">Step 1｜先學母音嘴型</span>
+                  <h3>韓文 40 音：讀音與發音訣竅</h3>
+                  <p>韓語字母稱為 한글。初學時不要急著背所有字，先把嘴巴的「張開、圓唇、扁唇、舌位」抓出來，再套到子音，會更快讀出新字。</p>
+                </div>
+                <button class="cta secondary" data-play-group="basicVowels">播放基本母音</button>
+              </div>
+
+              <div class="mouth-row">
+                <article class="mouth-card">
+                  <h4>ㅏ｜嘴巴自然張開</h4>
+                  <svg class="mouth-svg" viewBox="0 0 180 100" aria-hidden="true"><circle class="face-dot" cx="50" cy="18" r="5"/><circle class="face-dot" cx="130" cy="18" r="5"/><path class="mouth-line" d="M55 58 C82 88, 118 88, 145 58"/><ellipse class="tongue" cx="100" cy="72" rx="31" ry="11"/></svg>
+                  <p>像中文「ㄚ」，嘴型打開，不要拖成英文 a。</p>
+                </article>
+                <article class="mouth-card">
+                  <h4>ㅓ｜介於 ㄛ 與 ㄜ</h4>
+                  <svg class="mouth-svg" viewBox="0 0 180 100" aria-hidden="true"><circle class="face-dot" cx="50" cy="18" r="5"/><circle class="face-dot" cx="130" cy="18" r="5"/><path class="mouth-line" d="M66 56 C84 74, 116 74, 134 56"/><ellipse class="tongue" cx="100" cy="68" rx="24" ry="8"/></svg>
+                  <p>嘴巴比「ㄜ」更開，聲音往後放一點，別唸成很圓的「喔」。</p>
+                </article>
+                <article class="mouth-card">
+                  <h4>ㅗ / ㅜ｜圓唇</h4>
+                  <svg class="mouth-svg" viewBox="0 0 180 100" aria-hidden="true"><circle class="face-dot" cx="50" cy="18" r="5"/><circle class="face-dot" cx="130" cy="18" r="5"/><ellipse class="mouth-line" cx="100" cy="61" rx="26" ry="18"/><ellipse class="tongue" cx="100" cy="67" rx="17" ry="7"/></svg>
+                  <p>嘴唇往前收圓。ㅗ 像「ㄛ」，ㅜ 像「ㄨ」，差別在舌位與方向感。</p>
+                </article>
+                <article class="mouth-card">
+                  <h4>ㅡ / ㅣ｜扁嘴與微笑嘴</h4>
+                  <svg class="mouth-svg" viewBox="0 0 180 100" aria-hidden="true"><circle class="face-dot" cx="50" cy="18" r="5"/><circle class="face-dot" cx="130" cy="18" r="5"/><path class="mouth-line" d="M62 61 C86 55, 114 55, 138 61"/><path class="tongue" d="M76 68 C92 62, 108 62, 124 68 C111 76, 89 76, 76 68Z"/></svg>
+                  <p>ㅡ 中文沒有完全一樣的音，像「ㄜ」但嘴更扁；ㅣ 是微笑嘴的「ㄧ」。</p>
+                </article>
+              </div>
+
+              <div class="lesson-banner" style="background:linear-gradient(135deg,rgba(48,107,255,.10),rgba(83,185,159,.14)),#fff;">
+                <div>
+                  <span class="badge">基本母音 10 個</span>
+                  <h3>先把嘴型練穩</h3>
+                  <p>建議練習順序：ㅏ → ㅓ → ㅗ → ㅜ → ㅡ → ㅣ，再加入 y 音的 ㅑ、ㅕ、ㅛ、ㅠ。</p>
+                </div>
+              </div>
+              <div class="grid cards" id="basicVowelsGrid"></div>
+
+              <div class="lesson-banner" style="margin-top:22px;background:linear-gradient(135deg,rgba(168,144,255,.13),rgba(255,205,107,.18)),#fff;">
+                <div>
+                  <span class="badge">複合母音 11 個</span>
+                  <h3>兩個口形連起來</h3>
+                  <p>複合母音可以先想成「口形滑動」。例如 ㅘ 是 ㅗ + ㅏ，嘴巴從圓唇滑到張開。</p>
+                </div>
+                <button class="cta secondary" data-play-group="compoundVowels">播放複合母音</button>
+              </div>
+              <div class="grid cards compound" id="compoundVowelsGrid"></div>
+
+              <div class="lesson-banner" style="margin-top:22px;">
+                <div>
+                  <span class="badge">單子音 14 個</span>
+                  <h3>先掌握氣流，再接母音</h3>
+                  <p>韓語子音會因位置而有不同感覺。初學先記「代表音」，再透過單字慢慢修正。</p>
+                </div>
+                <button class="cta secondary" data-play-group="consonants">播放單子音</button>
+              </div>
+              <div class="grid cards compound" id="consonantsGrid"></div>
+
+              <div class="lesson-banner" style="margin-top:22px;background:linear-gradient(135deg,rgba(236,111,102,.12),rgba(168,144,255,.13)),#fff;">
+                <div>
+                  <span class="badge">雙子音 5 個</span>
+                  <h3>更緊、更短、更用力</h3>
+                  <p>雙子音不是單純比較大聲，而是喉嚨和口腔先「繃住」再放開，聲音短而集中。</p>
+                </div>
+              </div>
+              <div class="grid cards" id="doubleConsonantsGrid"></div>
+
+              <div class="lesson-banner" style="margin-top:22px;background:linear-gradient(135deg,rgba(83,185,159,.14),rgba(255,205,107,.15)),#fff;">
+                <div>
+                  <span class="badge">收音｜韻尾</span>
+                  <h3>先記 7 個代表尾音</h3>
+                  <p>韓語字尾的收音很多看起來不同，但實際常收斂成 7 個代表音。先學會「停住嘴型」，讀單字會更穩。</p>
+                </div>
+              </div>
+              <div class="rule-list">
+                <div class="rule"><div class="rule-num">1</div><div><strong>ㄱ尾：ㄱ、ㅋ、ㄲ</strong><p>嘴巴停在 k/g 的位置，不要加出「ㄜ」。</p><span class="example-chip">국 guk</span><span class="example-chip">밖 bak</span></div></div>
+                <div class="rule"><div class="rule-num">2</div><div><strong>ㄴ尾：ㄴ</strong><p>舌尖頂上排牙齦，像中文 n 尾。</p><span class="example-chip">산 san</span><span class="example-chip">문 mun</span></div></div>
+                <div class="rule"><div class="rule-num">3</div><div><strong>ㄷ尾：ㄷ、ㅌ、ㅅ、ㅆ、ㅈ、ㅊ、ㅎ</strong><p>舌尖停住，不把尾巴爆破出來。</p><span class="example-chip">옷 ot</span><span class="example-chip">꽃 kkot</span></div></div>
+                <div class="rule"><div class="rule-num">4</div><div><strong>ㄹ尾：ㄹ</strong><p>舌尖輕碰上方，短短停住，避免捲舌太重。</p><span class="example-chip">달 dal</span><span class="example-chip">물 mul</span></div></div>
+                <div class="rule"><div class="rule-num">5</div><div><strong>ㅁ尾：ㅁ</strong><p>雙唇閉起來，像 m 尾。</p><span class="example-chip">밤 bam</span><span class="example-chip">김 gim</span></div></div>
+                <div class="rule"><div class="rule-num">6</div><div><strong>ㅂ尾：ㅂ、ㅍ</strong><p>雙唇閉住，不要多發「ㄅㄜ」。</p><span class="example-chip">밥 bap</span><span class="example-chip">앞 ap</span></div></div>
+                <div class="rule"><div class="rule-num">7</div><div><strong>ㅇ尾：ㅇ</strong><p>像「ㄥ」尾，聲音從鼻腔出去。</p><span class="example-chip">방 bang</span><span class="example-chip">공 gong</span></div></div>
+              </div>
+            </section>
+
+            <section class="module" id="spelling">
+              <div class="lesson-banner">
+                <div>
+                  <span class="badge">Step 2｜拼字規則</span>
+                  <h3>韓文不是一個字母排到底，而是「組成一格」</h3>
+                  <p>每個韓文字看起來像一個方塊，其實是由子音、母音，有時再加上收音組成。先掌握格子方向，就能自己拼出很多字。</p>
+                </div>
+              </div>
+              <div class="rule-list">
+                <div class="rule"><div class="rule-num">1</div><div><strong>子音 + 直式母音：左右排</strong><p>ㅏ、ㅑ、ㅓ、ㅕ、ㅣ 這類母音寫在右邊。</p><span class="example-chip">ㄱ + ㅏ = 가</span><span class="example-chip">ㄴ + ㅓ = 너</span></div></div>
+                <div class="rule"><div class="rule-num">2</div><div><strong>子音 + 橫式母音：上下排</strong><p>ㅗ、ㅛ、ㅜ、ㅠ、ㅡ 這類母音寫在下面。</p><span class="example-chip">ㄱ + ㅗ = 고</span><span class="example-chip">ㅁ + ㅜ = 무</span></div></div>
+                <div class="rule"><div class="rule-num">3</div><div><strong>子音 + 母音 + 收音：尾音放最下面</strong><p>收音是字尾的閉合動作，放在整個方塊下方。</p><span class="example-chip">ㅎ + ㅏ + ㄴ = 한</span><span class="example-chip">ㅂ + ㅏ + ㅂ = 밥</span></div></div>
+                <div class="rule"><div class="rule-num">4</div><div><strong>ㅇ 在開頭常是「空位」</strong><p>韓文字一定要有子音位置。當字以母音開頭，前面會放 ㅇ，但開頭不發音。</p><span class="example-chip">ㅇ + ㅏ = 아</span><span class="example-chip">ㅇ + ㅗ = 오</span></div></div>
+              </div>
+
+              <div class="lesson-banner" style="margin-top:22px;background:linear-gradient(135deg,rgba(48,107,255,.10),rgba(255,205,107,.18)),#fff;">
+                <div>
+                  <span class="badge">互動拼字器</span>
+                  <h3>點選字母，立即組成韓文字</h3>
+                  <p>先選子音與母音，再選收音。沒有收音時選「無」。播放按鈕可以聽合成後的字。</p>
+                </div>
+              </div>
+              <div class="builder">
+                <div class="pick-box"><h4>子音</h4><div class="pick-buttons" id="initialPicker"></div></div>
+                <div class="pick-box"><h4>母音</h4><div class="pick-buttons" id="vowelPicker"></div></div>
+                <div class="pick-box"><h4>收音</h4><div class="pick-buttons" id="finalPicker"></div></div>
+                <div class="syllable-preview">
+                  <div class="preview-letter" id="syllableOutput">한</div>
+                  <div class="preview-text"><strong id="syllableFormula">ㅎ + ㅏ + ㄴ</strong><span>請觀察：母音決定左右或上下，收音永遠落在方塊底部。</span></div>
+                  <button class="listen" id="speakSyllable" aria-label="播放拼字結果">▶</button>
+                </div>
+              </div>
+            </section>
+
+            <section class="module" id="daily">
+              <div class="lesson-banner">
+                <div>
+                  <span class="badge">Step 3｜生活常用詞語</span>
+                  <h3>把 40 音放進每天會用的話</h3>
+                  <p>先從短詞開始，練習看字讀音。看到韓文時，請先拆字母，再聽一次確認節奏。</p>
+                </div>
+                <button class="cta secondary" data-play-group="dailyWords">播放生活詞</button>
+              </div>
+              <div class="grid three" id="dailyWordsGrid"></div>
+            </section>
+
+            <section class="module" id="travel">
+              <div class="lesson-banner">
+                <div>
+                  <span class="badge">Step 4｜旅行常用詞語</span>
+                  <h3>去韓國前最有感的一組字</h3>
+                  <p>用旅行情境練讀音：交通、點餐、購物、問路。先會讀，之後再慢慢擴充句型。</p>
+                </div>
+                <button class="cta secondary" data-play-group="travelWords">播放旅行詞</button>
+              </div>
+              <div class="grid three" id="travelWordsGrid"></div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <div id="practicePanel" class="panel">
+        <div class="layout" id="practice">
+          <aside class="side" aria-label="練習項目選單">
+            <div class="side-title">練習項目</div>
+            <button class="menu-btn active" data-quiz="soundLetter"><span>聽音選字</span><span>아</span></button>
+            <button class="menu-btn" data-quiz="soundWord"><span>聽音選詞</span><span>밥</span></button>
+            <button class="menu-btn" data-quiz="zhToKo"><span>中文選韓文</span><span>台→한</span></button>
+          </aside>
+          <div class="practice-box">
+            <div class="practice-top">
+              <div>
+                <span class="badge">Daily Drill｜每天 3 題也有效</span>
+                <h3 id="quizHeading">聽音選字</h3>
+                <p id="quizIntro">按下播放後，從四個選項中選出你聽到的韓文字母。手機或電腦若有韓語語音，會自動播放。</p>
+              </div>
+              <button class="cta" id="newQuestion">下一題</button>
+            </div>
+            <div class="quiz-card">
+              <div class="quiz-question">
+                <div class="quiz-title" id="quizModeLabel">請聽音並選字</div>
+                <button class="listen" id="playQuestion" aria-label="播放題目">▶</button>
+              </div>
+              <p class="quiz-prompt" id="quizPrompt">準備好了嗎？</p>
+              <div class="options" id="options"></div>
+              <div class="feedback" id="feedback">選擇練習項目後，按「下一題」開始。</div>
+              <div class="progress">
+                <div class="stat">答對：<span id="score">0</span></div>
+                <div class="stat">題數：<span id="total">0</span></div>
+                <div class="stat">正確率：<span id="rate">0%</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button class="floating-practice" data-jump="practice">🎧 開始今日練習</button>
+
+  <footer class="shell footer">
+    <p>Made for Korean beginners in Taiwan｜建議每天：5 分鐘母音嘴型 + 5 分鐘拼字 + 3 題練習。</p>
+  </footer>
+
+  <script>
+    const $ = (selector, root = document) => root.querySelector(selector);
+    const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+
+    const basicVowels = [
+      {k:'ㅏ', sample:'아', z:'ㄚ', r:'a', tip:'嘴巴自然張開，像「ㄚ」。'},
+      {k:'ㅑ', sample:'야', z:'ㄧㄚ', r:'ya', tip:'先有短短 y，再接 ㅏ。'},
+      {k:'ㅓ', sample:'어', z:'ㄛ/ㄜ之間', r:'eo', tip:'嘴巴張開，聲音稍往後，不要太圓。'},
+      {k:'ㅕ', sample:'여', z:'ㄧㄛ/ㄧㄜ', r:'yeo', tip:'y + ㅓ，嘴巴不要縮太小。'},
+      {k:'ㅗ', sample:'오', z:'ㄛ', r:'o', tip:'圓唇，聲音較集中。'},
+      {k:'ㅛ', sample:'요', z:'ㄧㄛ', r:'yo', tip:'y + ㅗ，嘴唇保持圓。'},
+      {k:'ㅜ', sample:'우', z:'ㄨ', r:'u', tip:'圓唇往前，像「嗚」但短。'},
+      {k:'ㅠ', sample:'유', z:'ㄧㄨ', r:'yu', tip:'y + ㅜ，嘴唇前推。'},
+      {k:'ㅡ', sample:'으', z:'近似扁ㄜ', r:'eu', tip:'中文沒有完全一樣，嘴巴拉平。'},
+      {k:'ㅣ', sample:'이', z:'ㄧ', r:'i', tip:'微笑嘴，舌位較高。'}
+    ];
+    const compoundVowels = [
+      {k:'ㅐ', sample:'애', z:'ㄟ/欸', r:'ae', tip:'像短促「欸」，嘴型自然。'},
+      {k:'ㅒ', sample:'얘', z:'ㄧㄟ', r:'yae', tip:'y + ㅐ。'},
+      {k:'ㅔ', sample:'에', z:'ㄟ', r:'e', tip:'初學可先與 ㅐ 近似，之後再細分。'},
+      {k:'ㅖ', sample:'예', z:'ㄧㄟ', r:'ye', tip:'y + ㅔ。'},
+      {k:'ㅘ', sample:'와', z:'ㄨㄚ', r:'wa', tip:'ㅗ + ㅏ，圓唇滑到張口。'},
+      {k:'ㅙ', sample:'왜', z:'ㄨㄟ', r:'wae', tip:'ㅗ + ㅐ，像「喂」。'},
+      {k:'ㅚ', sample:'외', z:'ㄨㄟ', r:'oe', tip:'現代常接近 we。'},
+      {k:'ㅝ', sample:'워', z:'ㄨㄛ/ㄨㄜ', r:'wo', tip:'ㅜ + ㅓ，從圓唇滑到 ㅓ。'},
+      {k:'ㅞ', sample:'웨', z:'ㄨㄟ', r:'we', tip:'ㅜ + ㅔ。'},
+      {k:'ㅟ', sample:'위', z:'ㄩ/ㄨㄧ', r:'wi', tip:'圓唇後接 ㅣ。'},
+      {k:'ㅢ', sample:'의', z:'ㅡ+ㄧ', r:'ui', tip:'先 ㅡ 再滑到 ㅣ，常因位置有變音。'}
+    ];
+    const consonants = [
+      {k:'ㄱ', sample:'가', z:'ㄍ/ㄎ', r:'g/k', tip:'舌根輕碰，字首常偏 k。'},
+      {k:'ㄴ', sample:'나', z:'ㄋ', r:'n', tip:'舌尖頂上方。'},
+      {k:'ㄷ', sample:'다', z:'ㄉ/ㄊ', r:'d/t', tip:'舌尖碰上方，字首常偏 t。'},
+      {k:'ㄹ', sample:'라', z:'ㄌ/彈舌', r:'r/l', tip:'舌尖輕彈，不要捲舌。'},
+      {k:'ㅁ', sample:'마', z:'ㄇ', r:'m', tip:'雙唇閉合。'},
+      {k:'ㅂ', sample:'바', z:'ㄅ/ㄆ', r:'b/p', tip:'雙唇閉再放，字首常偏 p。'},
+      {k:'ㅅ', sample:'사', z:'ㄙ', r:'s', tip:'氣流從齒間滑出。'},
+      {k:'ㅇ', sample:'아', z:'空/ㄥ', r:'silent/ng', tip:'開頭不發音；收音像 ㄥ。'},
+      {k:'ㅈ', sample:'자', z:'ㄗ/ㄐ', r:'j', tip:'比中文ㄐ更短促。'},
+      {k:'ㅊ', sample:'차', z:'ㄘ/ㄑ', r:'ch', tip:'送氣明顯。'},
+      {k:'ㅋ', sample:'카', z:'ㄎ', r:'k', tip:'比 ㄱ 更送氣。'},
+      {k:'ㅌ', sample:'타', z:'ㄊ', r:'t', tip:'比 ㄷ 更送氣。'},
+      {k:'ㅍ', sample:'파', z:'ㄆ', r:'p', tip:'比 ㅂ 更送氣。'},
+      {k:'ㅎ', sample:'하', z:'ㅎ/ㄏ', r:'h', tip:'喉部送氣。'}
+    ];
+    const doubleConsonants = [
+      {k:'ㄲ', sample:'까', z:'緊ㄍ/ㄎ', r:'kk', tip:'先繃住再放開，短而緊。'},
+      {k:'ㄸ', sample:'따', z:'緊ㄉ/ㄊ', r:'tt', tip:'不是加重音，是口腔緊度。'},
+      {k:'ㅃ', sample:'빠', z:'緊ㄅ/ㄆ', r:'pp', tip:'雙唇先憋住再放。'},
+      {k:'ㅆ', sample:'싸', z:'緊ㄙ', r:'ss', tip:'氣流集中且較緊。'},
+      {k:'ㅉ', sample:'짜', z:'緊ㄗ/ㄐ', r:'jj', tip:'短促集中。'}
+    ];
+
+    const dailyWords = [
+      {ko:'안녕하세요', tw:'你好', note:'最常用問候。可先拆成 안-녕-하-세-요。'},
+      {ko:'감사합니다', tw:'謝謝', note:'正式禮貌說法。'},
+      {ko:'네', tw:'是／好的', note:'日常回應很常見。'},
+      {ko:'아니요', tw:'不是／不用', note:'禮貌否定。'},
+      {ko:'물', tw:'水', note:'有 ㄹ 收音，舌尖停住。'},
+      {ko:'밥', tw:'飯', note:'ㅂ 收音雙唇閉住，不多加音。'},
+      {ko:'커피', tw:'咖啡', note:'在韓國咖啡店超常見。'},
+      {ko:'친구', tw:'朋友', note:'練 ㅊ 送氣與 ㄱ。'},
+      {ko:'학교', tw:'學校', note:'ㅎ + ㄱ 的組合。'}
+    ];
+    const travelWords = [
+      {ko:'공항', tw:'機場', note:'兩個 ㅇ 收音，鼻音要收好。'},
+      {ko:'지하철', tw:'地鐵', note:'서울 搭車必備字。'},
+      {ko:'버스', tw:'公車', note:'ㅓ 嘴型要打開。'},
+      {ko:'화장실', tw:'廁所', note:'旅行必背。'},
+      {ko:'얼마예요?', tw:'多少錢？', note:'購物、點餐都能用。'},
+      {ko:'주세요', tw:'請給我', note:'點餐購物萬用句尾。'},
+      {ko:'맛있어요', tw:'好吃', note:'맛 的 ㅅ 是 ㄷ 收音。'},
+      {ko:'계산해 주세요', tw:'請結帳', note:'餐廳結帳可用。'},
+      {ko:'사진 찍어 주세요', tw:'請幫我拍照', note:'旅行友善句。'}
+    ];
+
+    const initials = ['ㄱ','ㄴ','ㄷ','ㄹ','ㅁ','ㅂ','ㅅ','ㅇ','ㅈ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+    const vowels = ['ㅏ','ㅑ','ㅓ','ㅕ','ㅗ','ㅛ','ㅜ','ㅠ','ㅡ','ㅣ','ㅐ','ㅔ','ㅘ','ㅝ','ㅟ','ㅢ'];
+    const finals = ['', 'ㄱ','ㄴ','ㄷ','ㄹ','ㅁ','ㅂ','ㅇ'];
+    const initialIndex = {'ㄱ':0,'ㄲ':1,'ㄴ':2,'ㄷ':3,'ㄸ':4,'ㄹ':5,'ㅁ':6,'ㅂ':7,'ㅃ':8,'ㅅ':9,'ㅆ':10,'ㅇ':11,'ㅈ':12,'ㅉ':13,'ㅊ':14,'ㅋ':15,'ㅌ':16,'ㅍ':17,'ㅎ':18};
+    const vowelIndex = {'ㅏ':0,'ㅐ':1,'ㅑ':2,'ㅒ':3,'ㅓ':4,'ㅔ':5,'ㅕ':6,'ㅖ':7,'ㅗ':8,'ㅘ':9,'ㅙ':10,'ㅚ':11,'ㅛ':12,'ㅜ':13,'ㅝ':14,'ㅞ':15,'ㅟ':16,'ㅠ':17,'ㅡ':18,'ㅢ':19,'ㅣ':20};
+    const finalIndex = {'':0,'ㄱ':1,'ㄲ':2,'ㄳ':3,'ㄴ':4,'ㄵ':5,'ㄶ':6,'ㄷ':7,'ㄹ':8,'ㄺ':9,'ㄻ':10,'ㄼ':11,'ㄽ':12,'ㄾ':13,'ㄿ':14,'ㅀ':15,'ㅁ':16,'ㅂ':17,'ㅄ':18,'ㅅ':19,'ㅆ':20,'ㅇ':21,'ㅈ':22,'ㅊ':23,'ㅋ':24,'ㅌ':25,'ㅍ':26,'ㅎ':27};
+
+    function makeSyllable(initial, vowel, final='') {
+      const code = 0xAC00 + (initialIndex[initial] * 21 + vowelIndex[vowel]) * 28 + finalIndex[final];
+      return String.fromCharCode(code);
+    }
+
+    function getKoreanVoice() {
+      const voices = speechSynthesis.getVoices ? speechSynthesis.getVoices() : [];
+      return voices.find(v => v.lang && v.lang.toLowerCase().startsWith('ko')) || voices.find(v => /korean|한국|한국어/i.test(v.name)) || null;
+    }
+    function speak(text, slow = false) {
+      if (!('speechSynthesis' in window)) {
+        alert('這台裝置目前不支援語音播放。');
+        return;
+      }
+      speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = 'ko-KR';
+      utter.rate = slow ? .72 : .82;
+      utter.pitch = 1.03;
+      const voice = getKoreanVoice();
+      if (voice) utter.voice = voice;
+      speechSynthesis.speak(utter);
+    }
+    if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = () => getKoreanVoice();
+
+    function soundCard(item) {
+      return `<article class="sound-card">
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start;">
+          <div><div class="letter">${item.k}</div><div class="sound-meta"><span class="zhuyin">${item.z}</span><span class="roman">${item.r}</span></div></div>
+          <button class="listen" data-speak="${item.sample}" aria-label="播放 ${item.k}">▶</button>
+        </div>
+        <div class="tip">例：<strong style="font-family:'Noto Sans KR';font-size:1.08rem;">${item.sample}</strong>｜${item.tip}</div>
+      </article>`;
+    }
+    function wordCard(item) {
+      return `<article class="word-card">
+        <div><div class="word-ko">${item.ko}</div><div class="word-tw">${item.tw}</div><div class="word-note">${item.note}</div></div>
+        <div class="word-actions"><span class="roman">點播放練耳朵</span><button class="listen" data-speak="${item.ko}" aria-label="播放 ${item.ko}">▶</button></div>
+      </article>`;
+    }
+
+    $('#basicVowelsGrid').innerHTML = basicVowels.map(soundCard).join('');
+    $('#compoundVowelsGrid').innerHTML = compoundVowels.map(soundCard).join('');
+    $('#consonantsGrid').innerHTML = consonants.map(soundCard).join('');
+    $('#doubleConsonantsGrid').innerHTML = doubleConsonants.map(soundCard).join('');
+    $('#dailyWordsGrid').innerHTML = dailyWords.map(wordCard).join('');
+    $('#travelWordsGrid').innerHTML = travelWords.map(wordCard).join('');
+
+    document.addEventListener('click', (e) => {
+      const speakBtn = e.target.closest('[data-speak]');
+      if (speakBtn) speak(speakBtn.dataset.speak, true);
+
+      const groupBtn = e.target.closest('[data-play-group]');
+      if (groupBtn) {
+        const map = { basicVowels, compoundVowels, consonants, dailyWords, travelWords };
+        const group = map[groupBtn.dataset.playGroup] || [];
+        speak(group.map(x => x.sample || x.ko).join('。'), true);
+      }
+
+      const jumpBtn = e.target.closest('[data-jump]');
+      if (jumpBtn) {
+        const target = jumpBtn.dataset.jump;
+        if (target === 'practice') activatePanel('practicePanel');
+        if (target === 'learn' || target === 'vowels') activatePanel('learnPanel');
+        const node = target === 'vowels' ? $('#learn') : $('#' + target);
+        if (node) node.scrollIntoView({ behavior:'smooth', block:'start' });
+      }
+    });
+
+    function activatePanel(panelId) {
+      $$('.tab').forEach(t => {
+        const active = t.dataset.panel === panelId;
+        t.classList.toggle('active', active);
+        t.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      $$('.panel').forEach(p => p.classList.toggle('active', p.id === panelId));
+    }
+    $$('.tab').forEach(btn => btn.addEventListener('click', () => activatePanel(btn.dataset.panel)));
+
+    $$('#learnPanel .menu-btn').forEach(btn => btn.addEventListener('click', () => {
+      $$('#learnPanel .menu-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      $$('#learnPanel .module').forEach(m => m.classList.toggle('active', m.id === btn.dataset.module));
+    }));
+
+    let selected = {initial:'ㅎ', vowel:'ㅏ', final:'ㄴ'};
+    function renderPicker(id, items, key, labeler = x => x || '無') {
+      $(id).innerHTML = items.map(item => `<button class="pick ${selected[key]===item?'active':''}" data-pick-key="${key}" data-pick-value="${item}">${labeler(item)}</button>`).join('');
+    }
+    function renderBuilder() {
+      renderPicker('#initialPicker', initials, 'initial');
+      renderPicker('#vowelPicker', vowels, 'vowel');
+      renderPicker('#finalPicker', finals, 'final');
+      const syllable = makeSyllable(selected.initial, selected.vowel, selected.final);
+      $('#syllableOutput').textContent = syllable;
+      $('#syllableFormula').textContent = `${selected.initial} + ${selected.vowel}${selected.final ? ' + ' + selected.final : ' + 無收音'}`;
+    }
+    renderBuilder();
+    document.addEventListener('click', (e) => {
+      const pick = e.target.closest('[data-pick-key]');
+      if (!pick) return;
+      selected[pick.dataset.pickKey] = pick.dataset.pickValue;
+      renderBuilder();
+    });
+    $('#speakSyllable').addEventListener('click', () => speak($('#syllableOutput').textContent, true));
+
+    const quizData = {
+      soundLetter: [...basicVowels, ...compoundVowels, ...consonants, ...doubleConsonants].map(x => ({answer:x.sample, show:x.k, label:x.z, speak:x.sample, hint:`${x.k}｜${x.z}｜${x.tip}`})),
+      soundWord: [...dailyWords, ...travelWords].map(x => ({answer:x.ko, show:x.ko, label:x.tw, speak:x.ko, hint:`${x.ko}＝${x.tw}｜${x.note}`})),
+      zhToKo: [...dailyWords, ...travelWords].map(x => ({answer:x.ko, show:x.ko, label:x.tw, speak:x.ko, hint:`${x.tw} 的韓文是 ${x.ko}`}))
+    };
+    const quizCopy = {
+      soundLetter: {h:'聽音選字', intro:'按下播放後，從四個選項中選出你聽到的韓文字母。', mode:'請聽音並選字'},
+      soundWord: {h:'聽音選詞', intro:'聽韓語詞語後，選出正確的韓文。', mode:'請聽音並選詞'},
+      zhToKo: {h:'中文選韓文', intro:'看中文意思，選出對應的韓文。', mode:'請看中文並選韓文'}
+    };
+    let quizMode = 'soundLetter';
+    let current = null;
+    let score = 0;
+    let total = 0;
+
+    function shuffle(arr) { return [...arr].sort(() => Math.random() - .5); }
+    function sampleOptions(pool, correct, n=4) {
+      const others = shuffle(pool.filter(x => x.show !== correct.show)).slice(0, n-1);
+      return shuffle([correct, ...others]);
+    }
+    function newQuestion() {
+      const pool = quizData[quizMode];
+      current = pool[Math.floor(Math.random() * pool.length)];
+      const opts = sampleOptions(pool, current);
+      $('#quizHeading').textContent = quizCopy[quizMode].h;
+      $('#quizIntro').textContent = quizCopy[quizMode].intro;
+      $('#quizModeLabel').textContent = quizCopy[quizMode].mode;
+      $('#quizPrompt').textContent = quizMode === 'zhToKo' ? current.label : '請按 ▶ 聽題目';
+      $('#options').innerHTML = opts.map(o => `<button class="option" data-answer="${o.show}"><span style="font-family:'Noto Sans KR';font-size:1.55rem;display:block;">${o.show}</span><span style="color:var(--muted);font-size:.92rem;">${quizMode === 'soundLetter' ? o.label : (quizMode === 'zhToKo' ? '選這個韓文' : o.label)}</span></button>`).join('');
+      $('#feedback').textContent = quizMode === 'zhToKo' ? '請選出對應的韓文。' : '先聽，再選。可以重播。';
+      if (quizMode !== 'zhToKo') setTimeout(() => speak(current.speak, true), 120);
+    }
+    function updateStats() {
+      $('#score').textContent = score;
+      $('#total').textContent = total;
+      $('#rate').textContent = total ? Math.round(score / total * 100) + '%' : '0%';
+    }
+    $('#newQuestion').addEventListener('click', newQuestion);
+    $('#playQuestion').addEventListener('click', () => {
+      if (!current) newQuestion();
+      else speak(current.speak, true);
+    });
+    $('#options').addEventListener('click', (e) => {
+      const opt = e.target.closest('.option');
+      if (!opt || !current || opt.disabled) return;
+      total += 1;
+      const ok = opt.dataset.answer === current.show;
+      if (ok) score += 1;
+      $$('.option', $('#options')).forEach(btn => {
+        btn.disabled = true;
+        if (btn.dataset.answer === current.show) btn.classList.add('correct');
+      });
+      if (!ok) opt.classList.add('wrong');
+      $('#feedback').textContent = ok ? `答對！${current.hint}` : `差一點。正確答案是 ${current.show}。${current.hint}`;
+      updateStats();
+    });
+    $$('#practicePanel .menu-btn').forEach(btn => btn.addEventListener('click', () => {
+      $$('#practicePanel .menu-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      quizMode = btn.dataset.quiz;
+      current = null;
+      newQuestion();
+    }));
+    updateStats();
+    newQuestion();
+  </script>
+</body>
+</html>
